@@ -37,7 +37,8 @@ This system solves problems like:
 
 ## 🧩 Entity Relationship Diagram (ERD)
 
-[ERD](https://lucid.app/lucidchart/547b1ca0-6929-4bca-966d-2e3e19fbeee7/edit?page=0_0&invitationId=inv_0d945f0c-f07a-4fdf-9b96-9cd255a29f29#)
+![ERD](https://github.com/user-attachments/assets/5a4050f1-6d7b-422c-9467-b9a23e22564c)
+
 
 ---
 
