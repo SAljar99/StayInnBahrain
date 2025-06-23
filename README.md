@@ -37,7 +37,8 @@ This system solves problems like:
 
 ## 🧩 Entity Relationship Diagram (ERD)
 
-![ERD](https://github.com/user-attachments/assets/5a4050f1-6d7b-422c-9467-b9a23e22564c)
+![ERD](![image](https://github.com/user-attachments/assets/18e0bbe1-532d-4fba-afa4-e2a76e228a1e)
+
 
 
 ---
