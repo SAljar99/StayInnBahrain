@@ -1,0 +1,25 @@
+{
+  "name": "u3_lesson_react_auth",
+  "private": true,
+  "version": "2.0.0",
+  "description": "In this lesson, we'll learn about implementing authentication on the front-end with React.",
+  "author": "Michael Lackey",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react-swc": "^3.7.2",
+    "vite": "^6.0.6"
+  }
+}
