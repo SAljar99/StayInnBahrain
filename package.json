@@ -1,13 +1,13 @@
 {
-  "name": "u3_lesson_react_auth",
+  "name": "stayinnbahrain-backend",
   "private": true,
-  "version": "2.0.0",
-  "description": "In this lesson, we'll learn about implementing authentication on the front-end with React.",
+  "version": "1.0.0",
+  "description": "Backend for StayInnBahrain hotel booking app",
   "main": "server.js",
   "scripts": {
-    "dev": "node --watch server.js"
+    "dev": "node server.js"
   },
-  "author": "Michael Lackey",
+  "author": "Saud Aljar",
   "license": "MIT",
   "dependencies": {
     "@ngneat/falso": "^7.2.0",
