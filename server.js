@@ -1,37 +1,27 @@
 const express = require('express')
-const logger = require('morgan')
 const cors = require('cors')
-const mongoose = require('mongoose')
-require('dotenv').config()
-
+const logger = require('morgan')
+const dotenv = require('dotenv')
+const db = require('./db')
 const AuthRouter = require('./routes/AuthRouter')
 
-const app = express()
+dotenv.config()
 
-// Middleware
+const app = express()
+const PORT = process.env.PORT || 3001
+
 app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-// DB connection
-mongoose.connect(process.env.MONGODB_URI)
-mongoose.connection.on('connected', () => {
-  console.log(`Connected to MongoDB: ${mongoose.connection.name}`)
-})
-mongoose.connection.on('error', (err) => {
-  console.error('MongoDB connection error:', err)
-})
-
 // Routes
 app.use('/auth', AuthRouter)
 
 app.get('/', (req, res) => {
-  res.send('Welcome to StayInnBahrain API')
+  res.send('StayInnBahrain API is running 🏨')
 })
 
-// Server
-const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
-  console.log(`Express server is running on port ${PORT} 🚀`)
+  console.log(`✅ Server is running on http://localhost:${PORT}`)
 })
