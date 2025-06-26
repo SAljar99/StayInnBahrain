@@ -4,6 +4,8 @@ const logger = require('morgan')
 const dotenv = require('dotenv')
 const db = require('./db')
 const AuthRouter = require('./routes/AuthRouter')
+const FlatRouter = require('./routes/FlatRouter')
+
 
 dotenv.config()
 
@@ -17,6 +19,7 @@ app.use(express.urlencoded({ extended: false }))
 
 // Routes
 app.use('/auth', AuthRouter)
+app.use('/flats', FlatRouter)
 
 app.get('/', (req, res) => {
   res.send('StayInnBahrain API is running 🏨')
