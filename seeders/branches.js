@@ -1,5 +1,3 @@
-// seeders/branches.js
-
 const mongoose = require('mongoose')
 require('dotenv').config()
 
