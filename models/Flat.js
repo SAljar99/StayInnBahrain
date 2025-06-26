@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 
 const flatSchema = new Schema(
   {
@@ -12,4 +12,4 @@ const flatSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = model('Flat', flatSchema);
+module.exports =  flatSchema;

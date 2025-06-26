@@ -1,7 +1,13 @@
-const User = require('./User')
-const HotelBranch = require('./HotelBranch')
-const Flat = require('./Flat')
-const Booking = require('./Booking')
+const mongoose = require('mongoose')
+const userSchema = require('./User')
+const hotelBranchSchema = require('./HotelBranch')
+const flatSchema = require('./Flat')
+const bookingSchema = require('./Booking')
+
+const User = mongoose.model('User', userSchema)
+const HotelBranch = mongoose.model('HotelBranch', hotelBranchSchema)
+const Flat = mongoose.model('Flat', flatSchema)
+const Booking = mongoose.model('Booking', bookingSchema)
 
 module.exports = {
   User,
@@ -9,3 +15,4 @@ module.exports = {
   Flat,
   Booking
 }
+

@@ -1,12 +1,12 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require("mongoose")
 
 const hotelBranchSchema = new Schema(
   {
     name: { type: String, required: true },
-    adress: { type: Number, required: true },
-    location: { type: String, required: true }
+    address: { type: String, required: true },
+    location: { type: String, required: true },
   },
   { timestamps: true }
-);
+)
 
-module.exports = model('HotelBranch', hotelBranchSchema);
+module.exports = hotelBranchSchema
