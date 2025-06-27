@@ -1,4 +1,3 @@
-// controllers/BookingController.js
 const { Booking, Flat } = require('../models')
 
 // 📅 Create a new booking
