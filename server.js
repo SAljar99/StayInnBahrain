@@ -5,6 +5,8 @@ const dotenv = require('dotenv')
 const db = require('./db')
 const AuthRouter = require('./routes/AuthRouter')
 const FlatRouter = require('./routes/FlatRouter')
+const BookingRouter = require('./routes/BookingRouter')
+
 
 
 dotenv.config()
@@ -20,6 +22,8 @@ app.use(express.urlencoded({ extended: false }))
 // Routes
 app.use('/auth', AuthRouter)
 app.use('/flats', FlatRouter)
+app.use('/bookings', BookingRouter)
+
 
 app.get('/', (req, res) => {
   res.send('StayInnBahrain API is running 🏨')
