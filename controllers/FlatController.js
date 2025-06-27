@@ -1,6 +1,6 @@
 const { Flat } = require('../models')
 
-// ✅ Get all flats in a branch
+//  Get all flats in a branch
 const GetFlatsByBranch = async (req, res) => {
   try {
     const flats = await Flat.find({ branchId: req.params.branch_id })
@@ -10,7 +10,7 @@ const GetFlatsByBranch = async (req, res) => {
   }
 }
 
-// ✅ Get a flat by ID (for detail view)
+//  Get a flat by ID (for detail view)
 const GetFlatById = async (req, res) => {
   try {
     const flat = await Flat.findById(req.params.flat_id)
@@ -20,7 +20,7 @@ const GetFlatById = async (req, res) => {
   }
 }
 
-// ✅ Filter available flats by date range
+//  Filter available flats by date range
 const FilterAvailableFlats = async (req, res) => {
   try {
     const { startDate, endDate } = req.body
@@ -34,7 +34,7 @@ const FilterAvailableFlats = async (req, res) => {
   }
 }
 
-// 🔧 Admin: Create a flat
+//  Admin: Create a flat
 const CreateFlat = async (req, res) => {
   try {
     const flat = await Flat.create(req.body)
@@ -44,7 +44,7 @@ const CreateFlat = async (req, res) => {
   }
 }
 
-// 🛠️ Admin: Update a flat
+//  Admin: Update a flat
 const UpdateFlat = async (req, res) => {
   try {
     const updated = await Flat.findByIdAndUpdate(req.params.flat_id, req.body, {
@@ -56,7 +56,7 @@ const UpdateFlat = async (req, res) => {
   }
 }
 
-// ❌ Admin: Delete a flat
+//  Admin: Delete a flat
 const DeleteFlat = async (req, res) => {
   try {
     await Flat.findByIdAndDelete(req.params.flat_id)

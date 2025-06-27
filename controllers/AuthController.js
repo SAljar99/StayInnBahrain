@@ -1,7 +1,7 @@
 const { User } = require('../models')
 const middleware = require('../middleware')
 
-// 📝 Register
+//  Register
 const Register = async (req, res) => {
   try {
     const { email, password, fullName, phone, cprFront, cprBack } = req.body
@@ -28,7 +28,7 @@ const Register = async (req, res) => {
   }
 }
 
-// 🔐 Login
+//  Login
 const Login = async (req, res) => {
   try {
     const { email, password } = req.body
@@ -52,7 +52,7 @@ const Login = async (req, res) => {
   }
 }
 
-// 🔁 Update password
+//  Update password
 const UpdatePassword = async (req, res) => {
   try {
     const { oldPassword, newPassword } = req.body
@@ -73,13 +73,13 @@ const UpdatePassword = async (req, res) => {
   }
 }
 
-// ✅ Check session
+//  Check session
 const CheckSession = async (req, res) => {
   const { payload } = res.locals
   res.status(200).send(payload)
 }
 
-// 🔍 Get full user
+//  Get full user
 const GetUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.user_id).select('-passwordDigest')
@@ -91,7 +91,7 @@ const GetUserById = async (req, res) => {
   }
 }
 
-// 🛠 Update user info
+// Update user info
 const UpdateUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.user_id, req.body, {
@@ -104,7 +104,7 @@ const UpdateUser = async (req, res) => {
   }
 }
 
-// ❌ Delete user
+//  Delete user
 const DeleteUser = async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.user_id)

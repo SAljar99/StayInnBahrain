@@ -1,4 +1,3 @@
-// seeders/flats.js
 const db = require('../db')
 const { Flat } = require('../models')
 

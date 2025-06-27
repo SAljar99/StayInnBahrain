@@ -2,13 +2,13 @@ const router = require('express').Router()
 const controller = require('../controllers/AuthController')
 const middleware = require('../middleware')
 
-// 📝 Register a new user
+// Register a new user
 router.post('/register', controller.Register)
 
-// 🔐 Login with email and password
+//  Login with email and password
 router.post('/login', controller.Login)
 
-// 🔄 Update password (requires valid token)
+//  Update password (requires valid token)
 router.put(
   '/update/:user_id',
   middleware.stripToken,
@@ -16,7 +16,7 @@ router.put(
   controller.UpdatePassword
 )
 
-// ✅ Check if token/session is still valid
+//  Check if token/session is still valid
 router.get(
   '/session',
   middleware.stripToken,
@@ -24,7 +24,7 @@ router.get(
   controller.CheckSession
 )
 
-// 🔍 Get full user profile (optional, useful for dashboards)
+//  Get full user profile (optional, useful for dashboards)
 router.get(
   '/:user_id',
   middleware.stripToken,
@@ -32,7 +32,7 @@ router.get(
   controller.GetUserById
 )
 
-// 🛠️ Update user profile info (not password)
+//  Update user profile info (not password)
 router.put(
   '/edit/:user_id',
   middleware.stripToken,
@@ -40,7 +40,7 @@ router.put(
   controller.UpdateUser
 )
 
-// ❌ Delete a user account
+//  Delete a user account
 router.delete(
   '/:user_id',
   middleware.stripToken,
