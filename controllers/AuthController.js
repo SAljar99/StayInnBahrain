@@ -1,30 +1,33 @@
-const { User } = require('../models')
-const middleware = require('../middleware')
+const { User } = require("../models")
+const middleware = require("../middleware")
 
 //  Register
 const Register = async (req, res) => {
   try {
-    const { email, password, fullName, phone, cprFront, cprBack } = req.body
+    const { email, password, fullName, phone } = req.body
+
     let passwordDigest = await middleware.hashPassword(password)
 
     let existingUser = await User.findOne({ email })
     if (existingUser) {
-      return res.status(400).send('A user with that email has already been registered!')
+      return res
+        .status(400)
+        .send("A user with that email has already been registered!")
     }
 
     const user = await User.create({
       email,
       fullName,
       phone,
-      cprFront,
-      cprBack,
-      passwordDigest
+      cprFront: req.files?.cprFront?.[0]?.path || "",
+      cprBack: req.files?.cprBack?.[0]?.path || "",
+      passwordDigest,
     })
 
     res.status(200).send(user)
   } catch (error) {
     console.log(error)
-    res.status(500).send('Registration error')
+    res.status(500).send("Registration error")
   }
 }
 
@@ -35,20 +38,23 @@ const Login = async (req, res) => {
     const user = await User.findOne({ email })
 
     if (!user) {
-      return res.status(404).send({ status: 'Error', msg: 'User not found' })
+      return res.status(404).send({ status: "Error", msg: "User not found" })
     }
 
-    let matched = await middleware.comparePassword(password, user.passwordDigest)
+    let matched = await middleware.comparePassword(
+      password,
+      user.passwordDigest
+    )
     if (matched) {
       let payload = { id: user.id, email: user.email }
       let token = middleware.createToken(payload)
       return res.status(200).send({ user: payload, token })
     }
 
-    res.status(401).send({ status: 'Error', msg: 'Invalid credentials' })
+    res.status(401).send({ status: "Error", msg: "Invalid credentials" })
   } catch (error) {
     console.log(error)
-    res.status(500).send({ status: 'Error', msg: 'Login error' })
+    res.status(500).send({ status: "Error", msg: "Login error" })
   }
 }
 
@@ -58,18 +64,23 @@ const UpdatePassword = async (req, res) => {
     const { oldPassword, newPassword } = req.body
     let user = await User.findById(req.params.user_id)
 
-    let matched = await middleware.comparePassword(oldPassword, user.passwordDigest)
+    let matched = await middleware.comparePassword(
+      oldPassword,
+      user.passwordDigest
+    )
     if (!matched) {
-      return res.status(401).send({ status: 'Error', msg: 'Old password incorrect' })
+      return res
+        .status(401)
+        .send({ status: "Error", msg: "Old password incorrect" })
     }
 
     let passwordDigest = await middleware.hashPassword(newPassword)
     await User.findByIdAndUpdate(req.params.user_id, { passwordDigest })
 
-    return res.status(200).send({ status: 'Password updated successfully' })
+    return res.status(200).send({ status: "Password updated successfully" })
   } catch (error) {
     console.log(error)
-    res.status(500).send({ status: 'Error', msg: 'Password update failed' })
+    res.status(500).send({ status: "Error", msg: "Password update failed" })
   }
 }
 
@@ -82,25 +93,31 @@ const CheckSession = async (req, res) => {
 //  Get full user
 const GetUserById = async (req, res) => {
   try {
-    const user = await User.findById(req.params.user_id).select('-passwordDigest')
-    if (!user) return res.status(404).send('User not found')
+    const user = await User.findById(req.params.user_id).select(
+      "-passwordDigest"
+    )
+    if (!user) return res.status(404).send("User not found")
     res.status(200).send(user)
   } catch (error) {
     console.log(error)
-    res.status(500).send('Error fetching user')
+    res.status(500).send("Error fetching user")
   }
 }
 
 // Update user info
 const UpdateUser = async (req, res) => {
   try {
-    const updatedUser = await User.findByIdAndUpdate(req.params.user_id, req.body, {
-      new: true
-    }).select('-passwordDigest')
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.user_id,
+      req.body,
+      {
+        new: true,
+      }
+    ).select("-passwordDigest")
     res.status(200).send(updatedUser)
   } catch (error) {
     console.log(error)
-    res.status(500).send('Error updating user')
+    res.status(500).send("Error updating user")
   }
 }
 
@@ -108,10 +125,10 @@ const UpdateUser = async (req, res) => {
 const DeleteUser = async (req, res) => {
   try {
     await User.findByIdAndDelete(req.params.user_id)
-    res.status(200).send({ status: 'User deleted successfully' })
+    res.status(200).send({ status: "User deleted successfully" })
   } catch (error) {
     console.log(error)
-    res.status(500).send('Error deleting user')
+    res.status(500).send("Error deleting user")
   }
 }
 
@@ -122,5 +139,5 @@ module.exports = {
   CheckSession,
   GetUserById,
   UpdateUser,
-  DeleteUser
+  DeleteUser,
 }

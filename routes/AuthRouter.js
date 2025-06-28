@@ -1,16 +1,24 @@
-const router = require('express').Router()
-const controller = require('../controllers/AuthController')
-const middleware = require('../middleware')
+const router = require("express").Router()
+const controller = require("../controllers/AuthController")
+const middleware = require("../middleware")
+const upload = require("../middleware/upload")
 
 // Register a new user
-router.post('/register', controller.Register)
+router.post(
+  "/register",
+  upload.fields([
+    { name: "cprFront", maxCount: 1 },
+    { name: "cprBack", maxCount: 1 },
+  ]),
+  controller.Register
+)
 
 //  Login with email and password
-router.post('/login', controller.Login)
+router.post("/login", controller.Login)
 
 //  Update password (requires valid token)
 router.put(
-  '/update/:user_id',
+  "/update/:user_id",
   middleware.stripToken,
   middleware.verifyToken,
   controller.UpdatePassword
@@ -18,7 +26,7 @@ router.put(
 
 //  Check if token/session is still valid
 router.get(
-  '/session',
+  "/session",
   middleware.stripToken,
   middleware.verifyToken,
   controller.CheckSession
@@ -26,7 +34,7 @@ router.get(
 
 //  Get full user profile (optional, useful for dashboards)
 router.get(
-  '/:user_id',
+  "/:user_id",
   middleware.stripToken,
   middleware.verifyToken,
   controller.GetUserById
@@ -34,7 +42,7 @@ router.get(
 
 //  Update user profile info (not password)
 router.put(
-  '/edit/:user_id',
+  "/edit/:user_id",
   middleware.stripToken,
   middleware.verifyToken,
   controller.UpdateUser
@@ -42,7 +50,7 @@ router.put(
 
 //  Delete a user account
 router.delete(
-  '/:user_id',
+  "/:user_id",
   middleware.stripToken,
   middleware.verifyToken,
   controller.DeleteUser
