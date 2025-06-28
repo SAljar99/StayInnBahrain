@@ -1,8 +1,12 @@
-import Client from "./api"
+import api from "./api"
 
 export const RegisterUser = async (data) => {
   try {
-    const res = await Client.post("/auth/register", data)
+    const res = await api.post("/auth/register", data, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      }
+    })
     return res.data
   } catch (error) {
     throw error
