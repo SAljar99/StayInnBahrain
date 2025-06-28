@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react"
 import { Route, Routes } from "react-router"
+import { useLocation } from "react-router-dom"
 import Nav from "./components/Nav"
 import Register from "./pages/Register"
 import SignIn from "./pages/SignIn"
 import HotelBranches from "./pages/HotelBranches"
+import BranchList from './components/BranchList'
 import Home from "./pages/Home"
 import "./App.css"
 import { CheckSession } from "./services/Auth"
+import BookingForm from './components/BookingForm'
+
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -31,6 +35,12 @@ const App = () => {
     setUser(user)
   }
 
+  const BranchListWithCity = () => {
+  const location = useLocation()
+  const city = location.state?.city || "Manama" 
+  return <BranchList city={city} />
+}
+
   return (
     <>
       <Nav user={user} handleLogOut={handleLogOut} />
@@ -39,7 +49,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/hotelbranches" element={<HotelBranches />} />
+          <Route path="/branches/:city" element={<HotelBranches user={user} />} />
+<Route path="/book/:flatId" element={<BookingForm />} />
+
+          
         </Routes>
       </main>
     </>
