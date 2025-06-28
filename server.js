@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/auth', AuthRouter)
 app.use('/flats', FlatRouter)
 app.use('/bookings', BookingRouter)
-app.use('/branches', HotelBranchRouter);
+app.use('/hotelbranches', HotelBranchRouter);
 
 
 
