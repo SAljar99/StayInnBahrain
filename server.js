@@ -6,6 +6,9 @@ const db = require('./db')
 const AuthRouter = require('./routes/AuthRouter')
 const FlatRouter = require('./routes/FlatRouter')
 const BookingRouter = require('./routes/BookingRouter')
+const HotelBranchRouter = require('./routes/HotelBranchRouter');
+
+
 
 
 
@@ -24,6 +27,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/auth', AuthRouter)
 app.use('/flats', FlatRouter)
 app.use('/bookings', BookingRouter)
+app.use('/branches', HotelBranchRouter);
+
 
 
 app.get('/', (req, res) => {
