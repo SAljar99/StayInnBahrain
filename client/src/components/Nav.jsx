@@ -6,8 +6,7 @@ const Nav = ({ user, handleLogOut }) => {
   if (user) {
     userOptions = (
       <nav>
-        <h3>Welcome {user.name}!</h3>
-        <Link to="/feed">Feed</Link>
+        <h3>Welcome {user.fullName}!</h3>
         <Link onClick={handleLogOut} to="/">
           Sign Out
         </Link>
@@ -25,9 +24,7 @@ const Nav = ({ user, handleLogOut }) => {
 
   return (
     <header>
-      <Link to="/">
-        <img className="logo" src="/images/logo.png" alt="logo" />
-      </Link>
+    
       {user ? userOptions : publicOptions}
     </header>
   )
