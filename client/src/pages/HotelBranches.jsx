@@ -10,27 +10,25 @@ const HotelBranches = ({ user }) => {
   useEffect(() => {
     const fetchBranches = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/branches?city=${city}`)
+        const res = await axios.get(`http://localhost:3001/hotelbranches?city=${city}`)
         setBranches(res.data)
       } catch (error) {
         console.error(error)
       }
     }
     fetchBranches()
-  }, [])
+  }, [city])
 
   return (
     <div className="hotel-branches">
-      <h1>{city} Branches</h1>
-      <div className="branches-container">
-        {branches.length > 0 ? (
-          branches.map((branch) => (
-            <BranchList key={branch._id} branch={branch} />
-          ))
-        ) : (
-          <p>Loading branches...</p>
-        )}
-      </div>
+      <h2>{city} Branches</h2>
+      {branches.length ? (
+        branches.map(branch => (
+          <BranchList key={branch._id} branch={branch} />
+        ))
+      ) : (
+        <p>No branches found in this city.</p>
+      )}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema } = require("mongoose")
 
 const flatSchema = new Schema(
   {
@@ -6,10 +6,10 @@ const flatSchema = new Schema(
     type: { type: String, required: true },
     isRented: { type: Boolean, default: false },
     price: { type: Number, required: true },
-    branchId: { type: Schema.Types.ObjectId, ref: 'HotelBranch', required: true },
-    flatImages: [{ type: String }]
+    branchId: { type: Schema.Types.ObjectId, ref: "HotelBranch" },
+    flatImages: [{ type: String }],
   },
   { timestamps: true }
-);
+)
 
-module.exports =  flatSchema;
+module.exports = flatSchema

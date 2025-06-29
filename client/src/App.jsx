@@ -49,7 +49,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/branches/:city" element={<HotelBranches user={user} />} />
+          <Route path="/branches/:city" element={<HotelBranches />} />
 <Route path="/book/:flatId" element={<BookingForm />} />
 
           
