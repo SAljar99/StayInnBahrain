@@ -31,18 +31,15 @@ const BookingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post(
-        `http://localhost:3001/bookings`,
-        {
-          flatId,
-          ...formData,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
-        }
-      )
+      await axios.post('http://localhost:3001/bookings', {
+  flatID: flat._id,
+  startDate,
+  endDate
+}, {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('token')}`
+  }
+})
       alert('Booking successful!')
       navigate('/')
     } catch (err) {

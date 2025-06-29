@@ -9,9 +9,8 @@ import BranchList from "./components/BranchList"
 import Home from "./pages/Home"
 import "./App.css"
 import { CheckSession } from "./services/Auth"
-import BookingForm from "./components/BookingForm"
-import AvailableFlats from './pages/AvailableFlats'
-
+import BookingForm from "./pages/BookingForm"
+import AvailableFlats from "./pages/AvailableFlats"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -51,12 +50,11 @@ const App = () => {
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/branches/:city" element={<HotelBranches />} />
-          <Route path="/book/:flatId" element={<BookingForm />} />
-
           <Route
             path="/branches/:branchId/flats"
             element={<AvailableFlats />}
           />
+          <Route path="/book/:flatId" element={<BookingForm />} />
         </Routes>
       </main>
     </>

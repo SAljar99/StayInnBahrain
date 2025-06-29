@@ -6,11 +6,14 @@ const CreateBooking = async (req, res) => {
     const userID = res.locals.payload.id; //  Securely get user ID from token
     const { flatID, startDate, endDate } = req.body;
 
-    const flat = await Flat.findById(flatID);
-    if (!flat) return res.status(404).send({ msg: 'Flat not found' });
-    if (flat.isRented) return res.status(400).send({ msg: 'Flat already booked' });
+    // Check if flat is already rented
+    const flat = await Flat.findById(flatID)
+    if (!flat || flat.isRented) {
+      return res.status(400).json({ message: 'Flat is not available' })
+    }
 
     const booking = await Booking.create({ userID, flatID, startDate, endDate });
+    
     await Flat.findByIdAndUpdate(flatID, { isRented: true });
 
     res.status(201).send(booking);

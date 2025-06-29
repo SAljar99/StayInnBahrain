@@ -11,6 +11,17 @@ const GetFlatsByBranch = async (req, res) => {
   }
 }
 
+const GetFlatById = async (req, res) => {
+  try {
+    const flat = await Flat.findById(req.params.flatId)
+    if (!flat) return res.status(404).json({ message: 'Flat not found' })
+    res.json(flat)
+  } catch (err) {
+    res.status(500).json({ error: 'Error fetching flat' })
+  }
+}
+
 module.exports = {
-  GetFlatsByBranch
+  GetFlatsByBranch,
+  GetFlatById
 }
