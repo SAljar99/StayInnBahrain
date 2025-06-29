@@ -5,12 +5,11 @@ import Nav from "./components/Nav"
 import Register from "./pages/Register"
 import SignIn from "./pages/SignIn"
 import HotelBranches from "./pages/HotelBranches"
-import BranchList from './components/BranchList'
+import BranchList from "./components/BranchList"
 import Home from "./pages/Home"
 import "./App.css"
 import { CheckSession } from "./services/Auth"
-import BookingForm from './components/BookingForm'
-
+import BookingForm from "./components/BookingForm"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -36,10 +35,10 @@ const App = () => {
   }
 
   const BranchListWithCity = () => {
-  const location = useLocation()
-  const city = location.state?.city || "Manama" 
-  return <BranchList city={city} />
-}
+    const location = useLocation()
+    const city = location.state?.city || "Manama"
+    return <BranchList city={city} />
+  }
 
   return (
     <>
@@ -50,9 +49,12 @@ const App = () => {
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/branches/:city" element={<HotelBranches />} />
-<Route path="/book/:flatId" element={<BookingForm />} />
+          <Route path="/book/:flatId" element={<BookingForm />} />
 
-          
+          <Route
+            path="/branches/:branchId/flats"
+            element={<AvailableFlats />}
+          />
         </Routes>
       </main>
     </>

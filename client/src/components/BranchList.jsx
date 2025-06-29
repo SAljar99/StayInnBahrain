@@ -1,4 +1,6 @@
 import FlatList from './FlatList'
+import { Link } from 'react-router-dom'
+
 
 const BranchList = ({ branch }) => {
   return (
@@ -9,6 +11,8 @@ const BranchList = ({ branch }) => {
      View on Map 📍
   </a>
 </p>
+
+
 
       <div className="flats-container">
         {branch.flats.map((flat) => (
