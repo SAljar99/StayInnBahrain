@@ -10,6 +10,8 @@ import Home from "./pages/Home"
 import "./App.css"
 import { CheckSession } from "./services/Auth"
 import BookingForm from "./components/BookingForm"
+import AvailableFlats from './pages/AvailableFlats'
+
 
 const App = () => {
   const [user, setUser] = useState(null)
