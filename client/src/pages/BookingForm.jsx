@@ -12,6 +12,14 @@ const BookingForm = () => {
   })
 
   useEffect(() => {
+
+    const token = localStorage.getItem('token')
+  if (!token) {
+    alert('You must be signed in to book a flat.')
+    navigate('/signin')
+    return
+  }
+
     const fetchFlat = async () => {
       try {
         const res = await axios.get(`http://localhost:3001/flats/${flatId}`)
@@ -22,7 +30,7 @@ const BookingForm = () => {
     }
 
     fetchFlat()
-  }, [flatId])
+  }, [flatId, navigate])
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })

@@ -42,7 +42,7 @@ router.get(
 
 //  Update user profile info (not password)
 router.put(
-  "/edit/:user_id",
+  "/edit",
   middleware.stripToken,
   middleware.verifyToken,
   controller.UpdateUser
@@ -50,7 +50,7 @@ router.put(
 
 //  Delete a user account
 router.delete(
-  "/:user_id",
+  "/",
   middleware.stripToken,
   middleware.verifyToken,
   controller.DeleteUser

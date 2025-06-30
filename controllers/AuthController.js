@@ -107,27 +107,22 @@ const GetUserById = async (req, res) => {
 // Update user info
 const UpdateUser = async (req, res) => {
   try {
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.user_id,
-      req.body,
-      {
-        new: true,
-      }
-    ).select("-passwordDigest")
+    const userID = res.locals.payload.id
+    const updatedUser = await User.findByIdAndUpdate(userID, req.body, { new: true }).select("-passwordDigest")
     res.status(200).send(updatedUser)
   } catch (error) {
-    console.log(error)
     res.status(500).send("Error updating user")
   }
 }
 
+
 //  Delete user
 const DeleteUser = async (req, res) => {
   try {
-    await User.findByIdAndDelete(req.params.user_id)
+    const userID = res.locals.payload.id
+    await User.findByIdAndDelete(userID)
     res.status(200).send({ status: "User deleted successfully" })
   } catch (error) {
-    console.log(error)
     res.status(500).send("Error deleting user")
   }
 }
