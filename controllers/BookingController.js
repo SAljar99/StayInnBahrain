@@ -46,25 +46,39 @@ const GetBookingsByUser = async (req, res) => {
 //  Update booking
 const UpdateBooking = async (req, res) => {
   try {
-    const updated = await Booking.findByIdAndUpdate(req.params.booking_id, req.body, { new: true });
-    res.status(200).send(updated);
+    const userID = res.locals.payload.id
+    const booking = await Booking.findById(req.params.booking_id)
+
+    if (!booking || booking.userID.toString() !== userID) {
+      return res.status(403).send({ msg: 'Not authorized to update this booking' })
+    }
+
+    const updated = await Booking.findByIdAndUpdate(req.params.booking_id, req.body, { new: true })
+    res.status(200).send(updated)
   } catch (err) {
-    res.status(500).send({ msg: 'Error updating booking', err });
+    res.status(500).send({ msg: 'Error updating booking', err })
   }
-};
+}
+
 
 //  Cancel booking
 const DeleteBooking = async (req, res) => {
   try {
-    const booking = await Booking.findByIdAndDelete(req.params.booking_id);
-    if (!booking) return res.status(404).send({ msg: 'Booking not found' });
+    const userID = res.locals.payload.id
+    const booking = await Booking.findById(req.params.booking_id)
 
-    await Flat.findByIdAndUpdate(booking.flatID, { isRented: false });
-    res.status(200).send({ msg: 'Booking canceled', booking });
+    if (!booking || booking.userID.toString() !== userID) {
+      return res.status(403).send({ msg: 'Not authorized to delete this booking' })
+    }
+
+    await booking.deleteOne()
+    await Flat.findByIdAndUpdate(booking.flatID, { isRented: false })
+    res.status(200).send({ msg: 'Booking canceled', booking })
   } catch (err) {
-    res.status(500).send({ msg: 'Error deleting booking', err });
+    res.status(500).send({ msg: 'Error deleting booking', err })
   }
-};
+}
+
 
 module.exports = {
   CreateBooking,

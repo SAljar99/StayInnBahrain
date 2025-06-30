@@ -13,6 +13,8 @@ import BookingForm from "./pages/BookingForm"
 import AvailableFlats from "./pages/AvailableFlats"
 import Dashboard from "./pages/Dashboard"
 import EditUser from "./pages/EditUser"
+import MyBookings from './pages/MyBookings'
+
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -59,6 +61,7 @@ const App = () => {
           <Route path="/book/:flatId" element={<BookingForm />} />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route path="/edit/:user_id" element={<EditUser />} />
+          <Route path="/my-bookings" element={<MyBookings />} />
         </Routes>
       </main>
     </>
