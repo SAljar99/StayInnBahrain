@@ -33,8 +33,8 @@ const BookingForm = () => {
     try {
       await axios.post('http://localhost:3001/bookings', {
   flatID: flat._id,
-  startDate,
-  endDate
+  startDate: formData.startDate,
+  endDate: formData.endDate
 }, {
   headers: {
     Authorization: `Bearer ${localStorage.getItem('token')}`
