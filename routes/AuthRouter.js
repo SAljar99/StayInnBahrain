@@ -50,7 +50,7 @@ router.get(
 
 //  Delete a user account
 router.delete(
-  "/",
+  "/:user_id",
   middleware.stripToken,
   middleware.verifyToken,
   controller.DeleteUser

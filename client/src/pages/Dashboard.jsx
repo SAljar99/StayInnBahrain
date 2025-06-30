@@ -38,9 +38,11 @@ const Dashboard = ({ user }) => {
   }, [user, navigate])
 
   const handleDelete = async () => {
+    if (!window.confirm("Are you sure you want to delete your account?")) return;
+
     try {
       const token = localStorage.getItem('token')
-      await axios.delete(`http://localhost:3001/auth/${user.id}`, {
+      await axios.delete(`http://localhost:3001/auth/${user._id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
