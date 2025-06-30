@@ -11,6 +11,8 @@ import "./App.css"
 import { CheckSession } from "./services/Auth"
 import BookingForm from "./pages/BookingForm"
 import AvailableFlats from "./pages/AvailableFlats"
+import Dashboard from "./pages/Dashboard"
+
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -55,6 +57,8 @@ const App = () => {
             element={<AvailableFlats />}
           />
           <Route path="/book/:flatId" element={<BookingForm />} />
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
+
         </Routes>
       </main>
     </>
