@@ -32,20 +32,20 @@ router.get(
   controller.CheckSession
 )
 
+//  Update user profile info (not password)
+router.put(
+  "/edit/:user_id",
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.UpdateUser
+)
+
 //  Get full user profile (optional, useful for dashboards)
 router.get(
   "/:user_id",
   middleware.stripToken,
   middleware.verifyToken,
   controller.GetUserById
-)
-
-//  Update user profile info (not password)
-router.put(
-  "/edit",
-  middleware.stripToken,
-  middleware.verifyToken,
-  controller.UpdateUser
 )
 
 //  Delete a user account
