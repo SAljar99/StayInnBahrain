@@ -43,6 +43,26 @@ const GetBookingsByUser = async (req, res) => {
   }
 };
 
+const GetBookingById = async (req, res) => {
+  try {
+    const booking = await Booking.findById(req.params.booking_id)
+    if (!booking) return res.status(404).send({ msg: 'Booking not found' })
+    res.status(200).send(booking)
+  } catch (err) {
+    res.status(500).send({ msg: 'Error fetching booking', err })
+  }
+}
+
+const getBookingsByUserId = async (req, res) => {
+  try {
+    const userId = req.params.id
+    const bookings = await Booking.find({ userID: userId }).populate('flatID')
+    res.status(200).json(bookings)
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get bookings' })
+  }
+}
+
 //  Update booking
 const UpdateBooking = async (req, res) => {
   try {
@@ -84,6 +104,8 @@ module.exports = {
   CreateBooking,
   GetAllBookings,
   GetBookingsByUser,
+  GetBookingById,
+  getBookingsByUserId,
   UpdateBooking,
   DeleteBooking
 };

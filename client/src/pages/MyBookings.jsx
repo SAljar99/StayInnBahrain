@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([])
@@ -9,7 +9,9 @@ const MyBookings = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await axios.get('http://localhost:3001/bookings/user/any', {
+        const userId = localStorage.getItem('userId') 
+const res = await axios.get(`http://localhost:3001/bookings/user/${userId}`, {
+
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         })
         setBookings(res.data)
@@ -44,7 +46,10 @@ const MyBookings = () => {
           <p>Flat: {booking.flatID?.number}</p>
           <p>From: {booking.startDate}</p>
           <p>To: {booking.endDate}</p>
-          <button onClick={() => handleEdit(booking.flatID._id)}>Edit</button>
+          <Link to={`/editbooking/${booking._id}`}>
+  <button>Edit</button>
+</Link>
+
           <button onClick={() => handleDelete(booking._id)}>Cancel</button>
         </div>
       ))}

@@ -14,6 +14,8 @@ import AvailableFlats from "./pages/AvailableFlats"
 import Dashboard from "./pages/Dashboard"
 import EditUser from "./pages/EditUser"
 import MyBookings from './pages/MyBookings'
+import EditBooking from './pages/EditBooking'
+
 
 
 const App = () => {
@@ -61,7 +63,11 @@ const App = () => {
           <Route path="/book/:flatId" element={<BookingForm />} />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route path="/edit/:user_id" element={<EditUser />} />
-          <Route path="/my-bookings" element={<MyBookings />} />
+          <Route path="/mybookings" element={<MyBookings />} />
+           <Route
+            path="/editbooking/:bookingId"
+            element={<EditBooking user={user} />}/>
+
         </Routes>
       </main>
     </>

@@ -11,6 +11,8 @@ router.get('/', controller.GetAllBookings)
 // Get bookings by user
 router.get('/user/:user_id', middleware.stripToken, middleware.verifyToken, controller.GetBookingsByUser)
 
+router.get('/:booking_id', middleware.stripToken, middleware.verifyToken, controller.GetBookingById)
+
 // Update a booking
 router.put('/:booking_id', middleware.stripToken, middleware.verifyToken, controller.UpdateBooking)
 
