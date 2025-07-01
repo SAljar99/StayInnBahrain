@@ -24,6 +24,10 @@ const res = await axios.get(`http://localhost:3001/bookings/user/${userId}`, {
   }, [])
 
   const handleDelete = async (bookingId) => {
+
+    const confirmDelete = window.confirm("Are you sure you want to cancel this booking?");
+  if (!confirmDelete) return;
+  
     try {
       await axios.delete(`http://localhost:3001/bookings/${bookingId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
