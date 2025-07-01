@@ -1,24 +1,23 @@
-import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { useEffect, useState } from "react"
+import { useParams, useNavigate } from "react-router-dom"
+import axios from "axios"
 
 const BookingForm = () => {
   const { flatId } = useParams()
   const navigate = useNavigate()
   const [flat, setFlat] = useState(null)
   const [formData, setFormData] = useState({
-    startDate: '',
-    endDate: ''
+    startDate: "",
+    endDate: "",
   })
 
   useEffect(() => {
-
-    const token = localStorage.getItem('token')
-  if (!token) {
-    alert('You must be signed in to book a flat.')
-    navigate('/signin')
-    return
-  }
+    const token = localStorage.getItem("token")
+    if (!token) {
+      alert("You must be signed in to book a flat.")
+      navigate("/signin")
+      return
+    }
 
     const fetchFlat = async () => {
       try {
@@ -39,20 +38,24 @@ const BookingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:3001/bookings', {
-  flatID: flat._id,
-  startDate: formData.startDate,
-  endDate: formData.endDate
-}, {
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem('token')}`
-  }
-})
-      alert('Booking successful!')
-      navigate('/')
+      await axios.post(
+        "http://localhost:3001/bookings",
+        {
+          flatID: flat._id,
+          startDate: formData.startDate,
+          endDate: formData.endDate,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      alert("Booking successful! ✅ ")
+      navigate("/")
     } catch (err) {
       console.error(err)
-      alert('Booking failed.')
+      alert("Booking failed.")
     }
   }
 

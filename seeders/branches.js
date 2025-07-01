@@ -30,13 +30,13 @@ const createBranches = async () => {
         'https://www.google.com/maps/place/26%C2%B013\'37.9%22N+50%C2%B034\'59.6%22E/@26.2271944,50.5806473,17z'
     },
     {
-      name: 'Cazino Park',
+      name: 'CazinoPark',
       address: 'Muharraq',
       location:
         'https://www.google.com/maps/place/26%C2%B015\'28.0%22N+50%C2%B036\'47.1%22E/@26.2577778,50.6105084,17z'
     },
     {
-      name: 'Aljar cold store',
+      name: 'AljarColdStore',
       address: 'Muharraq',
       location:
         'https://www.google.com/maps/place/26%C2%B015\'23.0%22N+50%C2%B036\'33.6%22E/@26.2430438,50.5431527,12.02z'
