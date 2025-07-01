@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Dashboard = ({ user }) => {
   const navigate = useNavigate()
@@ -71,8 +71,11 @@ const Dashboard = ({ user }) => {
       <button onClick={handleEdit}>Edit Info</button>
       <button onClick={handleDelete}>Delete Account</button>
 
-      <h3>Your Bookings</h3>
-      {bookings.length > 0 ? (
+<h3>
+        <Link to="/mybookings" >
+          Your Bookings
+        </Link>
+      </h3>      {bookings.length > 0 ? (
         bookings.map((booking) => (
           <div key={booking._id}>
             <p>Flat Number: {booking.flatID.number}</p>
