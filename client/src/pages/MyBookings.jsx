@@ -27,7 +27,7 @@ const res = await axios.get(`http://localhost:3001/bookings/user/${userId}`, {
 
     const confirmDelete = window.confirm("Are you sure you want to cancel this booking?");
   if (!confirmDelete) return;
-  
+
     try {
       await axios.delete(`http://localhost:3001/bookings/${bookingId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -47,7 +47,7 @@ const res = await axios.get(`http://localhost:3001/bookings/user/${userId}`, {
       <h2>My Bookings</h2>
       {bookings.map(booking => (
         <div key={booking._id}>
-          <p>Flat: {booking.flatID?.number}</p>
+          <p>Flat Number: {booking.flatID?.number}</p>
           <p>From: {booking.startDate}</p>
           <p>To: {booking.endDate}</p>
           <Link to={`/editbooking/${booking._id}`}>

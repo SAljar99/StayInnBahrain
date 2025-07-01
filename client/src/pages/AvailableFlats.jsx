@@ -28,11 +28,11 @@ const AvailableFlats = () => {
       {flats.length > 0 ? (
         flats.map((flat) => (
           <div key={flat._id} style={{ border: "1px solid #ccc", padding: "1rem", marginBottom: "1rem" }}>
-            <p><strong>Flat #{flat.number}</strong></p>
+            <p><strong>Flat Number: {flat.number}</strong></p>
             <p>Status: Available</p>
             <p>Price: {flat.price} BHD/month</p>
 
-            {/* Show flat images if available */}
+           
             {flat.flatImages && flat.flatImages.length > 0 && (
               <div style={{ display: "flex", gap: "10px", margin: "10px 0" }}>
                 {flat.flatImages.map((img, index) => (

@@ -75,7 +75,7 @@ const Dashboard = ({ user }) => {
       {bookings.length > 0 ? (
         bookings.map((booking) => (
           <div key={booking._id}>
-            <p>Flat ID: {booking.flatID.number}</p>
+            <p>Flat Number: {booking.flatID.number}</p>
             <p>Start: {new Date(booking.startDate).toLocaleDateString()}</p>
             <p>End: {new Date(booking.endDate).toLocaleDateString()}</p>
           </div>
