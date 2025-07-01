@@ -1,18 +1,13 @@
 import { Link } from 'react-router-dom'
 
 const branchImages = {
-  "HM": 'https://upload.wikimedia.org/wikipedia/commons/8/8e/HM_Building.jpg',
-
-  '3900': 'https://upload.wikimedia.org/wikipedia/commons/4/40/Hotel_Room_Interior.jpg',
-
-  "Gold": 'https://upload.wikimedia.org/wikipedia/commons/9/99/Golden_Hotel.jpg',
-
-  "AljarColdStore": 'https://upload.wikimedia.org/wikipedia/commons/9/99/Golden_Hotel.jpg',
-
-  "CazinoPark":'https://upload.wikimedia.org/wikipedia/commons/9/99/Golden_Hotel.jpg'
-
-
+  "HM": '/images/HM.jpg',
+  "3900": '/images/threenineoo.jpg',
+  "Gold": '/images/Gold.jpg',
+  "Aljar Cold Store": '/images/CS.jpg',
+  "Cazino Park": '/images/CP.png'
 }
+
 
 const BranchList = ({ branch }) => {
   return (
