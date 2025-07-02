@@ -13,10 +13,9 @@ import BookingForm from "./pages/BookingForm"
 import AvailableFlats from "./pages/AvailableFlats"
 import Dashboard from "./pages/Dashboard"
 import EditUser from "./pages/EditUser"
-import MyBookings from './pages/MyBookings'
-import EditBooking from './pages/EditBooking'
-
-
+import MyBookings from "./pages/MyBookings"
+import EditBooking from "./pages/EditBooking"
+import About from "./pages/About"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -64,10 +63,12 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard user={user} />} />
           <Route path="/edit/:user_id" element={<EditUser />} />
           <Route path="/mybookings" element={<MyBookings />} />
-           <Route
+          <Route
             path="/editbooking/:bookingId"
-            element={<EditBooking user={user} />}/>
+            element={<EditBooking user={user} />}
+          />
 
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
     </>
