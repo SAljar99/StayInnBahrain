@@ -10,6 +10,8 @@ const Nav = ({ user, handleLogOut }) => {
         <Link to="/">Home</Link>
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/mybookings">My Bookings</Link>
+                  <Link to="/about">About</Link>
+
         <Link onClick={handleLogOut} to="/">
           Sign Out
         </Link>
@@ -22,6 +24,8 @@ const Nav = ({ user, handleLogOut }) => {
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
       <Link to="/signin">Sign In</Link>
+            <Link to="/about">About</Link>
+
     </nav>
   )
 
