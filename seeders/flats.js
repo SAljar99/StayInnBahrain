@@ -9,15 +9,19 @@ const flats = [
     isRented: false,
     price: 350,
     branchId: '685d21b6b7d16c132a567eda',
-    flatImages: ['https://picsum.photos/300/200?random=1']
+    flatImages: [
+ '/images/f1.jpg'
+]
+
   },
   {
     number: 102,
     type: 'family',
-    isRented: true,
+    isRented: false,
     price: 420,
     branchId: '685d21b6b7d16c132a567eda',
-    flatImages: ['https://picsum.photos/300/200?random=2']
+    flatImages: [ '/images/f2.jpg']
+
   },
   {
     number: 103,
@@ -25,7 +29,10 @@ const flats = [
     isRented: false,
     price: 360,
     branchId: '685d21b6b7d16c132a567eda',
-    flatImages: ['https://picsum.photos/300/200?random=3']
+   flatImages: [ '/images/f3.jpg'
+
+]
+
   },
 
   // Branch: Gold (Manama)
@@ -35,15 +42,23 @@ const flats = [
     isRented: false,
     price: 390,
     branchId: '685d21b6b7d16c132a567edb',
-    flatImages: ['https://picsum.photos/300/200?random=4']
+    flatImages: [
+   '/images/f1.jpg'
+
+]
+
   },
   {
     number: 202,
     type: 'bachelor',
-    isRented: true,
+    isRented: false,
     price: 310,
     branchId: '685d21b6b7d16c132a567edb',
-    flatImages: ['https://picsum.photos/300/200?random=5']
+   flatImages: [
+  '/images/f3.jpg'
+
+]
+
   },
   {
     number: 203,
@@ -51,7 +66,11 @@ const flats = [
     isRented: false,
     price: 400,
     branchId: '685d21b6b7d16c132a567edb',
-    flatImages: ['https://picsum.photos/300/200?random=6']
+   flatImages: [
+   '/images/f2.jpg'
+
+]
+
   },
 
   // Branch: HM (Manama)
@@ -61,15 +80,23 @@ const flats = [
     isRented: false,
     price: 320,
     branchId: '685d21b6b7d16c132a567edc',
-    flatImages: ['https://picsum.photos/300/200?random=7']
+   flatImages: [
+   '/images/f3.jpg'
+
+]
+
   },
   {
     number: 302,
     type: 'family',
-    isRented: true,
+    isRented: false,
     price: 450,
     branchId: '685d21b6b7d16c132a567edc',
-    flatImages: ['https://picsum.photos/300/200?random=8']
+   flatImages: [
+   '/images/f1.jpg'
+
+]
+
   },
   {
     number: 303,
@@ -77,7 +104,11 @@ const flats = [
     isRented: false,
     price: 330,
     branchId: '685d21b6b7d16c132a567edc',
-    flatImages: ['https://picsum.photos/300/200?random=9']
+  flatImages: [
+   '/images/f2.jpg'
+
+]
+
   },
 
   // Branch: Cazino Park (Muharraq)
@@ -87,15 +118,23 @@ const flats = [
     isRented: false,
     price: 410,
     branchId: '685d21b6b7d16c132a567edd',
-    flatImages: ['https://picsum.photos/300/200?random=10']
+   flatImages: [
+   '/images/f3.jpg'
+
+]
+
   },
   {
     number: 402,
     type: 'bachelor',
-    isRented: true,
+    isRented: false,
     price: 300,
     branchId: '685d21b6b7d16c132a567edd',
-    flatImages: ['https://picsum.photos/300/200?random=11']
+    flatImages: [
+   '/images/f2.jpg'
+
+]
+
   },
   {
     number: 403,
@@ -103,7 +142,11 @@ const flats = [
     isRented: false,
     price: 430,
     branchId: '685d21b6b7d16c132a567edd',
-    flatImages: ['https://picsum.photos/300/200?random=12']
+    flatImages: [
+   '/images/f1.jpg'
+
+]
+
   },
 
   // Branch: Aljar Cold Store (Muharraq)
@@ -113,15 +156,23 @@ const flats = [
     isRented: false,
     price: 310,
     branchId: '685d21b6b7d16c132a567ede',
-    flatImages: ['https://picsum.photos/300/200?random=13']
+   flatImages: [
+   '/images/f3.jpg'
+
+]
+
   },
   {
     number: 502,
     type: 'family',
-    isRented: true,
+    isRented: false,
     price: 460,
     branchId: '685d21b6b7d16c132a567ede',
-    flatImages: ['https://picsum.photos/300/200?random=14']
+   flatImages: [
+   '/images/f2.jpg'
+
+]
+
   },
   {
     number: 503,
@@ -129,7 +180,11 @@ const flats = [
     isRented: false,
     price: 330,
     branchId: '685d21b6b7d16c132a567ede',
-    flatImages: ['https://picsum.photos/300/200?random=15']
+    flatImages: [
+   '/images/f1.jpg'
+
+]
+
   }
 ]
 
