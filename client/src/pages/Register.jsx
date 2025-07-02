@@ -44,8 +44,7 @@ const Register = () => {
   return (
     <div className="centered">
         <div className="form-container">
-      <img src="/images/register.png" alt="Register" />
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+<h2>Register</h2>      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="input-wrapper">
           <label htmlFor="fullName">Full Name</label>
 
@@ -53,7 +52,7 @@ const Register = () => {
             onChange={handleChange}
             id="fullName"
             type="text"
-            placeholder="John Doe"
+            placeholder="Michael NobodyLackey"
             value={formValues.fullName}
             required
           />
