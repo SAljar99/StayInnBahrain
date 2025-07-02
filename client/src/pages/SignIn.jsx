@@ -21,8 +21,9 @@ const SignIn = ({ setUser }) => {
   }
 
   return (
-    <div className="col signin">
-      <img src="/images/signin.png" alt="Sign In" />
+    <div className="centered">
+  <div className="form-container">
+    <img src="/images/signin.png" alt="Sign In" />
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <label htmlFor="email">Email</label>
@@ -50,6 +51,7 @@ const SignIn = ({ setUser }) => {
           Sign In
         </button>
       </form>
+    </div>
     </div>
   )
 }

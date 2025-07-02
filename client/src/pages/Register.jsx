@@ -42,7 +42,8 @@ const Register = () => {
   }
 
   return (
-    <div className="col register">
+    <div className="centered">
+        <div className="form-container">
       <img src="/images/register.png" alt="Register" />
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="input-wrapper">
@@ -135,6 +136,7 @@ const Register = () => {
           Register
         </button>
       </form>
+    </div>  
     </div>
   )
 }
