@@ -24,13 +24,14 @@ const BranchList = ({ branch }) => {
 
       <p>
         <a
-          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(branch.address)}`}
-          target="_blank"
-          rel="noreferrer"
-          style={{ color: 'purple', textDecoration: 'underline' }}
-        >
-          View on Map 📍
-        </a>
+  href={branch.location}
+  target="_blank"
+  rel="noreferrer"
+  style={{ color: 'purple', textDecoration: 'underline' }}
+>
+  View on Map 📍
+</a>
+
       </p>
 
       <Link to={`/branches/${branch._id}/flats`}>
