@@ -8,31 +8,45 @@ const branchImages = {
   "Cazino Park": '/images/CP.png'
 }
 
-
 const BranchList = ({ branch }) => {
+  const imageUrl = branchImages[branch.name]
+
   return (
     <div style={{ marginBottom: '2rem' }}>
       <h3>{branch.name}</h3>
 
-      {branchImages[branch.name] && (
-        <img
-          src={branchImages[branch.name]}
-          alt={`${branch.name} branch`}
-          style={{ width: '300px', borderRadius: '8px', marginBottom: '10px' }}
-        />
+      {imageUrl && (
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          marginBottom: '10px'
+        }}>
+          <img
+            src={imageUrl}
+            alt={`${branch.name} branch`}
+            style={{ width: '300px', borderRadius: '8px' }}
+          />
+
+       
+          <a
+            href={branch.location}
+            target="_blank"
+            rel="noreferrer"
+            style={{ marginLeft: '1rem', textDecoration: 'none' }}
+          >
+            <button style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '4px',
+              backgroundColor: 'purple',
+              color: 'white',
+              border: 'none',
+              cursor: 'pointer'
+            }}>
+              View on Map 📍
+            </button>
+          </a>
+        </div>
       )}
-
-      <p>
-        <a
-  href={branch.location}
-  target="_blank"
-  rel="noreferrer"
-  style={{ color: 'purple', textDecoration: 'underline' }}
->
-  View on Map 📍
-</a>
-
-      </p>
 
       <Link to={`/branches/${branch._id}/flats`}>
         <button>View Available Flats</button>

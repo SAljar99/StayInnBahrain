@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
+import './Dashboard.css' 
 
 const Dashboard = ({ user }) => {
   const navigate = useNavigate()
@@ -60,32 +61,43 @@ const Dashboard = ({ user }) => {
     navigate(`/edit/${user.id}`)
   }
 
-  if (!userInfo) return <p>Loading dashboard...</p>
+  if (!userInfo) return <p className="dashboard-loading">Loading dashboard...</p>
 
   return (
-    <div>
-      <h2>Your Profile</h2>
-      <p><strong>Name:</strong> {userInfo.fullName}</p>
-      <p><strong>Email:</strong> {userInfo.email}</p>
-      <p><strong>Phone:</strong> {userInfo.phone}</p>
-      <button onClick={handleEdit}>Edit Info</button>
-      <button onClick={handleDelete}>Delete Account</button>
+    <div className="dashboard-container">
+      <div className="profile-section">
+        <h2 className="dashboard-title">Your Profile</h2>
+        <div className="profile-info">
+          <p><strong>Name:</strong> {userInfo.fullName}</p>
+          <p><strong>Email:</strong> {userInfo.email}</p>
+          <p><strong>Phone:</strong> {userInfo.phone}</p>
+        </div>
+        <div className="profile-actions">
+          <button className="edit-button" onClick={handleEdit}>Edit Info</button>
+          <button className="delete-button" onClick={handleDelete}>Delete Account</button>
+        </div>
+      </div>
 
-<h3>
-        <Link to="/mybookings" >
-          Your Bookings
-        </Link>
-      </h3>      {bookings.length > 0 ? (
-        bookings.map((booking) => (
-          <div key={booking._id}>
-            <p>Flat Number: {booking.flatID.number}</p>
-            <p>Start: {new Date(booking.startDate).toLocaleDateString()}</p>
-            <p>End: {new Date(booking.endDate).toLocaleDateString()}</p>
+      <div className="bookings-section">
+        <h3 className="bookings-title">
+          <Link to="/mybookings" className="bookings-link">
+            Your Bookings
+          </Link>
+        </h3>
+        {bookings.length > 0 ? (
+          <div className="bookings-list">
+            {bookings.map((booking) => (
+              <div className="booking-card" key={booking._id}>
+                <p>Flat Number: {booking.flatID.number}</p>
+                <p>Start: {new Date(booking.startDate).toLocaleDateString()}</p>
+                <p>End: {new Date(booking.endDate).toLocaleDateString()}</p>
+              </div>
+            ))}
           </div>
-        ))
-      ) : (
-        <p>No bookings found.</p>
-      )}
+        ) : (
+          <p className="no-bookings">No bookings found.</p>
+        )}
+      </div>
     </div>
   )
 }
