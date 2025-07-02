@@ -48,8 +48,10 @@ const res = await axios.get(`http://localhost:3001/bookings/user/${userId}`, {
       {bookings.map(booking => (
         <div key={booking._id}>
           <p>Flat Number: {booking.flatID?.number}</p>
-          <p>From: {booking.startDate}</p>
-          <p>To: {booking.endDate}</p>
+              <p>From: {new Date(booking.startDate).toLocaleDateString('en-US')}</p>
+
+              <p>To: {new Date(booking.endDate).toLocaleDateString('en-US')}</p>
+
           <Link to={`/editbooking/${booking._id}`}>
   <button>Edit</button>
 </Link>
