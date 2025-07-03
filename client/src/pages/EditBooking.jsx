@@ -58,26 +58,77 @@ const EditBooking = ({ user }) => {
   }
 
   return (
-    <div>
+    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "1rem" }}>
+      <h2 style={{ marginBottom: "1.5rem" }}>Edit Your Booking</h2>
+      
       {formState ? (
-        <form onSubmit={handleSubmit} className="booking-form">
-          <label>Start Date:</label>
-          <input
-            type="date"
-            name="startDate"
-            value={formState.startDate?.slice(0, 10)}
-            onChange={handleChange}
-            required
-          />
-          <label>End Date:</label>
-          <input
-            type="date"
-            name="endDate"
-            value={formState.endDate?.slice(0, 10)}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit">Update Booking</button>
+        <form onSubmit={handleSubmit} style={{
+          padding: "1.5rem",
+          borderRadius: "8px",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+          backgroundColor: "#fff"
+        }}>
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label style={{
+              display: "block",
+              marginBottom: "0.5rem",
+              fontWeight: "500"
+            }}>Start Date:</label>
+            <input
+              type="date"
+              name="startDate"
+              value={formState.startDate?.slice(0, 10)}
+              onChange={handleChange}
+              required
+              style={{
+                width: "100%",
+                padding: "0.75rem",
+                border: "1px solid #ddd",
+                borderRadius: "4px",
+                fontSize: "1rem"
+              }}
+            />
+          </div>
+          
+          <div style={{ marginBottom: "1.5rem" }}>
+            <label style={{
+              display: "block",
+              marginBottom: "0.5rem",
+              fontWeight: "500"
+            }}>End Date:</label>
+            <input
+              type="date"
+              name="endDate"
+              value={formState.endDate?.slice(0, 10)}
+              onChange={handleChange}
+              required
+              style={{
+                width: "100%",
+                padding: "0.75rem",
+                border: "1px solid #ddd",
+                borderRadius: "4px",
+                fontSize: "1rem"
+              }}
+            />
+          </div>
+
+          <button type="submit" style={{
+            width: "100%",
+            padding: "0.75rem",
+            backgroundColor: "purple",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            fontSize: "1rem",
+            fontWeight: "500",
+            cursor: "pointer",
+            transition: "background-color 0.2s",
+            "&:hover": {
+              backgroundColor: "#6b46c1"
+            }
+          }}>
+            Update Booking
+          </button>
         </form>
       ) : (
         <p>Loading...</p>
