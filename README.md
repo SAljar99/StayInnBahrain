@@ -45,7 +45,6 @@ This system solves problems like:
 
 ## 🖼️ Wireframes
 
-![home](.\client\public\images\home.jpg)
 
 
 ---
