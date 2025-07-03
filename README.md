@@ -45,7 +45,6 @@ This system solves problems like:
 
 ## 🖼️ Wireframes
 
-client\public\images\home.jpg
 
 
 ---
