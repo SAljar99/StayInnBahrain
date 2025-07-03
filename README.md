@@ -29,7 +29,6 @@ This system solves problems like:
 - 🧾 Book, update, or cancel reservations
 - 🪪 CPR image upload (front & back) for identity verification
 - 📋 User profile with booking history and personal info
-- ⚙️ Admin dashboard to manage flats and monitor bookings
 - 📧 Automated monthly rent reminder emails
 - 🗂️ Linked MongoDB collections: Users, flats, Bookings, Branches
 
